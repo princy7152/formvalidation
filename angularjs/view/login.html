@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+	<style>
+		body {font-family: Arial, Helvetica, sans-serif;}
+
+    .background{
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(/images/img2.jpg);
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+    }
+
+    .form-box{
+          width: 380px;
+          height: 400px;
+          position: relative;
+          margin: auto;
+          margin-top: 70px;
+          background: rgba(0,0,0,0.4);
+          padding: 30px;
+          overflow: hidden;
+    
+        }
+
+    .form-input {
+
+      width: 100%;
+      padding: 10px 10px;
+      color: white;
+      margin-top: 10px ;
+      margin-bottom: 10px;
+      border-left: 0;
+      border-right: 0;
+      border-top: 0;
+      border-bottom: 2px solid white;
+      outline: none;
+      background: transparent;
+        
+     }
+
+     h1{
+      color: white;
+      text-align: center;
+     }
+
+    button {
+          background-color: #F3C693;
+          width: 85%;
+          padding: 10px 60px;
+          color: black;
+          margin: 40px 30px;
+          cursor: pointer;
+          outline: none;
+          border: 0;
+          border-radius: 20px;
+         }
+
+    button:hover {
+        transform: translateY(-7px);
+         }
+        
+    button[disabled]{
+        opacity: 0.5;
+    }
+    
+    .signup{
+      color: white;
+      text-align: center;
+      margin: 20px;
+    }
+
+
+#message {
+  width: 280px;
+  height: 100px;
+  background: rgba(0,0,0,0.4);
+  position: relative;
+  margin-left: 950px;
+  margin-top: -260px;
+}
+
+#message p {
+  padding: 0px 8px;
+  font-size: 12px;
+  color: white;
+}
+</style>
+</head>
+
+<body ng-app="myApp">
+  <div class="background" ng-controller="myCtrl">
+	 <div class="form-box">
+    <h1>LOGIN</h1>
+	 <form name="myForm" method="GET" action="homepage.html">
+
+			<input type="text"  class="form-input" placeholder="Enter Username" name="uname" ng-model="uname" ng-maxlength="25" ng-pattern="re" required> 
+            <span style="color:red; font-size: 12px;" ng-show="myForm.uname.$dirty && myForm.uname.$invalid">
+                <span ng-show="myForm.uname.$error.required"><i class="fa fa-exclamation-circle"></i> Username is required</span>
+                <span ng-show="myForm.uname.$error.maxlength"><i class="fa fa-exclamation-circle"></i> Username cannot be more than 25 characters long</span>
+                <span ng-show="myForm.uname.$error.pattern"><i class="fa fa-exclamation-circle"></i> Username cannot have spaces</span><br>
+              </span>
+
+			<input type="password"  class="form-input" placeholder="Enter Password" name="psw" ng-model="psw" ng-minlength="8" ng-maxlength="24" ng-focus="focus()" ng-blur="blur()" ng-pattern="re" required>
+            <span style="color:red; font-size: 12px;" ng-show="myForm.psw.$dirty && myForm.psw.$invalid">
+                <span ng-show="myForm.psw.$error.required"><i class="fa fa-exclamation-circle"></i> Password is required</span>
+                <span ng-show="myForm.psw.$error.minlength"><i class="fa fa-exclamation-circle"></i> Password should be atleast 8 characters long</span><br>
+                <span ng-show="myForm.psw.$error.pattern"><i class="fa fa-exclamation-circle"></i> Password cannot have spaces</span><br>
+                <span ng-show="myForm.psw.$error.maxlength"><i class="fa fa-exclamation-circle"></i> Password cannot be more than 24 characters long</span><br>
+            </span>
+
+			<button type="submit" ng-disabled="myForm.uname.$dirty && myForm.uname.$invalid || myForm.psw.$dirty && myForm.psw.$invalid">Login</button>
+
+            <div class="signup">Don't have an account? <a href="signup.html">Register Here</a></div>
+   </form>
+   </div>
+
+		<div id="message" ng-hide="hideMessage">
+      <p>Password must have one uppercase character</p>
+      <p>Atleast one special character</p>
+      <p>Atleast one number</p>
+      <p>Minimum 8 characters</p>
+		</div>
+  </div>
+
+    <script>
+      var app = angular.module('myApp', []);
+      app.controller('myCtrl', ['$scope' ,function($scope){
+        $scope.hideMessage = true;
+        $scope.focus = function() {
+          $scope.hideMessage = false;
+        }
+        $scope.blur = function() {
+          $scope.hideMessage = true;
+        }
+        $scope.re = /^\S*$/;
+      }]);
+    </script>
+  </body>
+  </html>

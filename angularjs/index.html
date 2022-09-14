@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      body {font-family: Arial, Helvetica, sans-serif;}
+
+      .background{
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(/images/img1.jpg);
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+    }
+
+    .top-left {
+        position: absolute;
+        top: 220px;
+        left: 50px;
+        font-size: 50px;
+    }
+
+    .top-left1 {
+        position: absolute;
+        top: 260px;
+        left: 50px;
+        font-size: 60px;
+    }
+
+    .top-left2 {
+        position: absolute;
+        top: 370px;
+        left: 50px;
+        font-size:20px;
+    }
+
+    .top-left3 {
+        position: absolute;
+        top: 420px;
+        left: 50px;
+        font-size:20px;
+    } 
+
+    button {
+        padding: 1.3em 3em;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 500;
+        color: #000;
+        background-color: #fff;
+        border: none;
+        border-radius: 45px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease 0s;
+        cursor: pointer;
+        outline: none;
+    }
+
+    button:hover {
+        background-color: #2EE59D;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        color: #fff;
+        transform: translateY(-7px);
+    }
+
+    button:active {
+        transform: translateY(-1px);
+    }
+
+    .button1 {border-radius: 12px;}
+
+    .navbar ul{
+        float: right;
+        display: flex;   
+    }
+
+    .navbar ul li{
+        float: left;
+        list-style: none;
+        margin-right: 50px;
+        margin-top: 10px;
+        text-decoration: none;
+        text-align: center;
+        transition: 0.4s ease-in-out;
+    }
+
+    .navbar ul li a{
+        float: left;
+        font-size: 18px; 
+        padding: 20px;
+        color: white;
+        text-decoration: none;
+        font-family: Lucida Console;
+    }
+    ul li a:hover {
+        color: peru;
+    }
+
+    .navbar a.active {
+        color: peachpuff;
+    }
+
+    .menu i{
+       position: absolute;
+        top: 30px;
+        left: 50px;
+        font-size: 30px;
+        color: #fff;
+    }
+
+    .menu i:hover{
+        color: peru;
+    }
+
+    .drop{
+    display: none;
+   }
+
+   .menu i:hover .drop{
+    display: block;
+   }
+  
+    .drop p{
+        color:white;
+        width: 100px;
+        padding: 3px;
+        font-size: 17px;
+        border-bottom: 1px  solid white;
+        font-family: Lucida Console;
+    }
+
+    .drop p:hover{
+        color: plum;
+    }
+
+    .drop a{
+        color:white;
+        text-decoration: none;
+    }
+
+    .drop a:hover{
+        color: plum;
+    }
+
+</style>
+</head>
+<body>
+    <div class="background">
+        <div class="top-left"><p class="p1">FOUNDATION</p></div>
+        <div class="top-left1"><p class="p1"><b>Finder</b></p></div>
+        <div class="top-left2"><p class="p1">Find your perfect foundation & shade, easily.</p></div>
+        <div class="top-left3"><button class="button button1">Start</button></div>
+        <div class="menu">
+            <i class="fa fa-bars">
+            <div class="drop">    
+                    <p><a href="foundation.html"><b>Foundation</b></a></p>
+                    <p><b>Eyeshadow</b></p> 
+                    <p><a href="concealer.html"><b>Concealer</b></a></p>  
+                    <p><b>Lipstick</b></p>  
+                    <p><b>Lipgloss</b></p>
+            </div>
+            </i>
+        </div> 
+        <div class="navbar">       
+            <ul>
+                <li><a class="active" href="#home"><i class="fa fa-fw fa-home"></i><b> Home</b></a></li>
+                <li><a href="#"><i class="fa fa-fw fa-search"></i><b> About Us</b></a></li>
+                <li><a href ="login.html"><i class="fa fa-fw fa-user"></i><b> Logout</b></button></a></li>
+             </ul>
+        </div>
+    </div>
+
+</body>
+</html>
